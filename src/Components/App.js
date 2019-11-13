@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import Home from './Home'
-import Questions from './Questions'
-import Results from './Results'
+import Home from './Home';
+import Questions from './Questions';
+import Results from './Results';
 
 
 function App() {
