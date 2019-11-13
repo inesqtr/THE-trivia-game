@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link} from 'react-router-dom';
 
 const Home = ({ fetch }) => {
     return (
@@ -11,7 +12,7 @@ const Home = ({ fetch }) => {
                 <button>Medium</button>
                 <button>Difficult</button>
             </div>
-            <button onClick={fetch}>PLAY</button>
+            <Link to="/questions"><button onClick={fetch}>PLAY</button></Link>
             <footer>A game developed and designed by Carolina Viero and Inês Ribeiro</footer>
         </div>
 
