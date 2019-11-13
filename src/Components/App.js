@@ -1,7 +1,8 @@
 import React from 'react';
 import './App.css';
-import Home from './Home.js'
 import { Switch, Route } from 'react-router-dom';
+import Home from './Home.js'
+import Questions from './Questions'
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
       <h1>THE Trivia Game</h1>
       <Switch>
         <Route exact path="/home"/>
-        <Route exact path="/questions"/>
+        <Route exact path="/" component={Questions}/>
         <Route exact path="/result"/>
       </Switch>
     </div>
