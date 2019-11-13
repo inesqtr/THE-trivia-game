@@ -10,10 +10,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      difficulty: '',
       questions: [],
+      difficulty: '',
       step: 0
     }
+  }
+
+  componentDidMount() {
+    this.handleFetchQuestions()
   }
 
   handleFetchQuestions = () => {
@@ -21,20 +25,21 @@ class App extends Component {
       .then(res => res.json())
       .then(data => {
         this.setState({
-          questions: [data.results]
+          questions: data.results
         })
       });
-      
-  };
-
-  render() {
+    };
+    
+    
+    render() {
+      const { questions } = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
           <Route exact path="/" component={() => <Home fetch={this.handleFetchQuestions} />} />
-          <Route exact path="/questions" component={() => <Questions questions={this.state.questions} />} />
+          <Route exact path="/questions" component={() => <Questions questions={questions} />} />
           <Route exact path="/result" component={Results} />
         </Switch>
       </div>
