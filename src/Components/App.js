@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import Home from './Home.js'
 import { Switch, Route } from 'react-router-dom';
+
 
 function App() {
   return (
