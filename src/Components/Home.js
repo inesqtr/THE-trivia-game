@@ -1,7 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-const Home = () => {
+const Home = ({ fetch }) => {
     return (
         <div>
             <div>Welcome to the best Trivia Game ever!</div>
@@ -12,7 +11,7 @@ const Home = () => {
                 <button>Medium</button>
                 <button>Difficult</button>
             </div>
-            <Link to="/questions"><button>PLAY</button></Link>
+            <button onClick={fetch}>PLAY</button>
             <footer>A game developed and designed by Carolina Viero and Inês Ribeiro</footer>
         </div>
 
