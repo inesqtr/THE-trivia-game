@@ -1,8 +1,13 @@
 import React from 'react';
 
-const Answer = ({ answer }) => {
+const Answer = ({ answer, handleUserAnswer }) => {
+
+    const handleSelectAnswer = () => {
+        handleUserAnswer(answer)
+    }
+
     return (
-        <div>
+        <div className="div-eachAnswer" value="" onClick={handleSelectAnswer}>
             {answer}
         </div>
     )

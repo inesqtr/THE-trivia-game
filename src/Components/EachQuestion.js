@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Answer from './Answer'
 import { shuffle } from 'lodash';
+import './App.css'
 
 class EachQuestion extends Component {
     constructor(props){
@@ -9,7 +10,7 @@ class EachQuestion extends Component {
             shuffledAnswers: shuffle([this.props.question.correct_answer, ...this.props.question.incorrect_answers])
         };
     }
-
+    
     render(){
     return (
         <div>
@@ -18,12 +19,13 @@ class EachQuestion extends Component {
                 {
                     this.state.shuffledAnswers.map(answer => 
                     <Answer
+                        key={answer}
                         answer={answer}
+                        handleUserAnswer={this.props.handleUserAnswer}
                     />)
                 }
             </div>
-            <div>Question number here</div>
-            <button>Next</button>
+            <button id="nextButton">Next</button>
         </div>
     )
 }
