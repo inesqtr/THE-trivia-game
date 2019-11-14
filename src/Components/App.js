@@ -40,7 +40,7 @@ class App extends Component {
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
-          <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} onClick={this.handleSelectDifficulty} />} />
+          <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} selectDifficulty={this.handleSelectDifficulty} />} />
           <Route exact path="/questions" component={() => <Questions questions={questions} />} />
           <Route exact path="/result" component={Results} />
         </Switch>
