@@ -12,30 +12,36 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
+      userAnswer: [],
       step: 0
     }
   }
 
+  handleUserAnswer = (answer) => {
+    this.setState({
+        userAnswer: answer
+      });
+  }
+  
   
   handleFetchQuestions = async () => {
     const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=easy&type=multiple`)
     const response = await rawResponse.json();
-    this.setState({
-      questions: response.results
-    });
-  };
-
-
+    this.setState({questions: response.results});
+    };
+  
+  
   render() {
     const { questions } = this.state;
-    console.log(questions);
     return (
       <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
           <Route exact path="/" component={() => <Home fetch={this.handleFetchQuestions} />} />
-          <Route exact path="/questions" component={() => <Questions questions={questions} />} />
+          <Route 
+            exact path="/questions" 
+            render={() => <Questions questions={questions} handleUserAnswer={this.handleUserAnswer} />} />
           <Route exact path="/result" component={Results} />
         </Switch>
       </div>
@@ -43,9 +49,5 @@ class App extends Component {
   }
 
 }
-
-
-
-
 
 export default App;

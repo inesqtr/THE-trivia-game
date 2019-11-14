@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EachQuestion from './EachQuestion'
 
-const Questions = ({ questions }) => {
+const Questions = ({ questions, handleUserAnswer }) => {
     return (
         <div>
             {
@@ -10,11 +10,12 @@ const Questions = ({ questions }) => {
                 <EachQuestion 
                     key={question.question}
                     question={question}
+                    handleUserAnswer={handleUserAnswer}
                 />)
                 
             }
             <div>Timer here</div>
-            <Link to="/"><button>Home icon here</button></Link>
+            <Link to="/"><button>Home</button></Link>
         </div>
     )
 }
