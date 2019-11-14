@@ -21,10 +21,7 @@ const Home = ({ fetch, selectDifficulty }) => {
                     PLAY
                 </button></Link>
             <footer>
-                This game was developed and designed by
-                <a href="https://www.linkedin.com/in/carolina-viero-15a26313a"> Carolina Viero </a>
-                and
-                <a href="https://www.linkedin.com/in/inesqtribeiro/"> Inês Ribeiro.</a></footer>
+                This game was developed and designed by <a href="https://www.linkedin.com/in/carolina-viero-15a26313a">Carolina Viero</a> and <a href="https://www.linkedin.com/in/inesqtribeiro/">Inês Ribeiro.</a></footer>
         </div>
 
     )

@@ -12,50 +12,54 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
+      step: 0,
       userAnswer: [],
-      step: 0
+      isSelected: false,
     }
   }
-}
-
-
+  
   handleUserAnswer = (answer) => {
     this.setState({
-        userAnswer: answer
+        userAnswer: answer,
+        isSelected: true,
       });
-  };
-
-  handleSelectDifficulty = (e) => {
-    this.setState({
-      difficulty: e.target.value
-    });
-  };
-
-  handleFetchQuestions = async () => {
-    const difficulty = this.state.difficulty || 'easy';
-    const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
-    const response = await rawResponse.json();
-    this.setState({questions: response.results});
     };
-  
-  
-  render() {
-    const { questions } = this.state;
-    return (
-      <div className="App">
+    
+    handleSelectDifficulty = (e) => {
+      this.setState({
+        difficulty: e.target.value
+      });
+    };
+    
+    handleFetchQuestions = async () => {
+      const difficulty = this.state.difficulty || 'easy';
+      const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
+      const response = await rawResponse.json();
+      this.setState({questions: response.results});
+    };
+    
+    
+    render() {
+      const { questions, isSelected } = this.state;
+      return (
+        <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
           <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} selectDifficulty={this.handleSelectDifficulty} />} />
           <Route 
             exact path="/questions" 
-            render={() => <Questions questions={questions} handleUserAnswer={this.handleUserAnswer} />} />
+            render={() => <Questions 
+              questions={questions} 
+              handleUserAnswer={this.handleUserAnswer} 
+              isSelected={isSelected} />} 
+          />
           <Route exact path="/result" component={Results} />
         </Switch>
       </div>
     );
   }
-
 }
+
 
 export default App;
