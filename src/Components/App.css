@@ -2,4 +2,47 @@
   text-align: center;
 }
 
+h1{
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 60px;
+}
+
+.div-eachAnswer{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 15px;
+  width: 60%;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.difficultyButtons{
+  font-size: 16px;
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin: 10px 5px;
+}
+
+.playButton{
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 30px;
+  font-weight: bold;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 30px 0px;
+}
+
+#nextButton{
+  font-family: 'Tomorrow', sans-serif;
+  font-size: 20px;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin: 30px 0px;
+  background-color: #ccc;
+  text-transform: uppercase;
+}
+
+
+
+
 

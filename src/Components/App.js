@@ -12,27 +12,33 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
+      userAnswer: [],
       step: 0
     }
   }
+}
+
+
+  handleUserAnswer = (answer) => {
+    this.setState({
+        userAnswer: answer
+      });
+  };
 
   handleSelectDifficulty = (e) => {
-    console.log(e.target.value)
     this.setState({
       difficulty: e.target.value
     });
-  }
+  };
 
   handleFetchQuestions = async () => {
     const difficulty = this.state.difficulty || 'easy';
     const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
     const response = await rawResponse.json();
-    this.setState({
-      questions: response.results
-    });
-  };
-
-
+    this.setState({questions: response.results});
+    };
+  
+  
   render() {
     const { questions } = this.state;
     return (
@@ -41,7 +47,9 @@ class App extends Component {
         <h1>THE Trivia Game</h1>
         <Switch>
           <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} selectDifficulty={this.handleSelectDifficulty} />} />
-          <Route exact path="/questions" component={() => <Questions questions={questions} />} />
+          <Route 
+            exact path="/questions" 
+            render={() => <Questions questions={questions} handleUserAnswer={this.handleUserAnswer} />} />
           <Route exact path="/result" component={Results} />
         </Switch>
       </div>
@@ -49,9 +57,5 @@ class App extends Component {
   }
 
 }
-
-
-
-
 
 export default App;
