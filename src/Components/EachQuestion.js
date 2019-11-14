@@ -22,6 +22,8 @@ class EachQuestion extends Component {
                         key={answer}
                         answer={answer}
                         handleUserAnswer={this.props.handleUserAnswer}
+                        question={this.props.question}
+                        isSelected={this.props.isSelected}
                     />)
                 }
             </div>

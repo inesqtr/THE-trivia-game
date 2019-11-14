@@ -16,6 +16,24 @@ h1{
   margin-top: 5px;
 }
 
+.div-eachAnswer-wrong{
+  border: 1px solid red;
+  border-radius: 5px;
+  padding: 15px;
+  width: 60%;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.div-eachAnswer-right{
+  border: 3px solid green;
+  border-radius: 5px;
+  padding: 15px;
+  width: 60%;
+  margin: auto;
+  margin-top: 5px;
+}
+
 .difficultyButtons{
   font-size: 16px;
   padding: 5px 10px;
@@ -40,6 +58,10 @@ h1{
   margin: 30px 0px;
   background-color: #ccc;
   text-transform: uppercase;
+}
+
+a{
+  text-decoration: none;
 }
 
 
