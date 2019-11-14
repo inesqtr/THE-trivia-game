@@ -7,12 +7,11 @@ const Questions = ({ questions }) => {
         <div>
             {
                 questions.map(question => 
-                    console.log(question)
-                // <EachQuestion 
-                //     key={question.question}
-                //     question={question}
-                // />)
-                )
+                <EachQuestion 
+                    key={question.question}
+                    question={question}
+                />)
+                
             }
             <div>Timer here</div>
             <Link to="/"><button>Home icon here</button></Link>

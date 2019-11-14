@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Answer from './Answer'
+import { shuffle } from 'lodash';
 
-const EachQuestion = ({ question }) => {
+class EachQuestion extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            shuffledAnswers: shuffle([this.props.question.correct_answer, ...this.props.question.incorrect_answers])
+        };
+    }
 
-    // componentDidMount() {
-    //     const { question } = this.props;
-    //     const shuffledAnswers = shuffle([question.correct_answer, ...question.incorrect_answer]);
-    //     this.setState({ shuffledAnswers });
-    //   }
-    console.log(question);
+    render(){
     return (
         <div>
-            <h3>{question.question}</h3>
-            <Answer />
+            <h3>{this.props.question.question}</h3>
+            <div>
+                {
+                    this.state.shuffledAnswers.map(answer => 
+                    <Answer
+                        answer={answer}
+                    />)
+                }
+            </div>
             <div>Question number here</div>
             <button>Next</button>
         </div>
     )
+}
 }
 
 export default EachQuestion;
