@@ -3,6 +3,7 @@ import { Link} from 'react-router-dom';
 import './App.css'
 
 
+
 const Home = ({ fetch, selectDifficulty }) => {
     return (
         <div>
@@ -19,7 +20,11 @@ const Home = ({ fetch, selectDifficulty }) => {
                 onClick={fetch}>
                     PLAY
                 </button></Link>
-            <footer>A game developed and designed by Carolina Viero and Inês Ribeiro</footer>
+            <footer>
+                This game was developed and designed by
+                <a href="https://www.linkedin.com/in/carolina-viero-15a26313a"> Carolina Viero </a>
+                and
+                <a href="https://www.linkedin.com/in/inesqtribeiro/"> Inês Ribeiro.</a></footer>
         </div>
 
     )
