@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
-import { shuffle } from 'lodash';
 import Home from './Home';
 import Questions from './Questions';
 import Results from './Results';
@@ -13,8 +12,7 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
-      step: 0,
-      shuffledAnswers: []
+      step: 0
     }
   }
 
