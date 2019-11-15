@@ -12,78 +12,76 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
-      step: 0,
-      userAnswer: [],
-      isSelected: false,
+      step: 0
     }
   }
-  
+
   handleUserAnswer = (userAnswer) => {
-    // this.setState(
-    //   (state) => {
+    this.setState(
+      (state) => {
 
-    //     const updatedQuestions = state.questions.map((question) => {
-    //       return userAnswer
-    //     })
+        const updatedQuestions = state.questions.map((question, index) => {
+          if (index === state.step) {
+            question.user_answer = userAnswer;
+          }
+          return question;
+        })
 
-    //     return {
-    //       ...state,
-    //       questions: [
-    //         ...state.questions,
-    //         userAnswer
-    //       ]
-    //     }
-    //   });
-    };
-    
-    
-    handleSelectDifficulty = (e) => {
-      this.setState({
-        difficulty: e.target.value
-      });
-    };
-    
-    handleFetchQuestions = async () => {
-      const difficulty = this.state.difficulty || 'easy';
-      const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
-      const response = await rawResponse.json();
-      this.setState({questions: response.results});
-    };
-
-    // quando se quer utilizar o estado anterior, this.setState deve ter como argumento uma função
-    handleNextStep = () => {
-      if (this.state.step === this.state.questions.length -1){
-        // navigate to Results
-        this.props.history.push('/result');
-        return;
-      }
-      this.setState((prevState) => {
         return {
-          ...prevState,
-          step: prevState.step +1
+          ...state,
+          questions: updatedQuestions
         }
-      })
-    }
+      });
+  };
 
-    
-    
-    
-    render() {
-      const { questions, isSelected, step } = this.state;
-      return (
-        <div className="App">
+
+  handleSelectDifficulty = (e) => {
+    this.setState({
+      difficulty: e.target.value
+    });
+  };
+
+  handleFetchQuestions = async () => {
+    const difficulty = this.state.difficulty || 'easy';
+    const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
+    const response = await rawResponse.json();
+    this.setState({ questions: response.results });
+  };
+
+  // quando se quer utilizar o estado anterior, this.setState deve ter como argumento uma função
+  handleNextStep = () => {
+    if (this.state.step === this.state.questions.length - 1) {
+      // navigate to Results
+      this.props.history.push('/result');
+      return;
+    }
+    this.setState((prevState) => {
+      return {
+        ...prevState,
+        step: prevState.step + 1
+      }
+    })
+  }
+
+
+
+
+  render() {
+    const { questions, isSelected, step } = this.state;
+    return (
+      <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
           <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} selectDifficulty={this.handleSelectDifficulty} />} />
-          <Route 
-            exact path="/questions" 
-            render={() => <Questions 
-              questions={questions} 
-              handleUserAnswer={this.handleUserAnswer} 
+          <Route
+            exact path="/questions"
+            render={() => <Questions
+              questions={questions}
+              handleUserAnswer={this.handleUserAnswer}
               isSelected={isSelected}
-              step={step} 
-              handleNextStep={this.handleNextStep}/>} 
+              step={step}
+              handleNextStep={this.handleNextStep} />}
           />
           <Route exact path="/result" component={Results} />
         </Switch>
