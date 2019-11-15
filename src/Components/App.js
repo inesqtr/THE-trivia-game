@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, withRouter } from 'react-router-dom';
 import Home from './Home';
 import Questions from './Questions';
 import Results from './Results';
@@ -18,12 +18,24 @@ class App extends Component {
     }
   }
   
-  handleUserAnswer = (answer) => {
-    this.setState({
-        userAnswer: answer,
-        isSelected: true,
-      });
+  handleUserAnswer = (userAnswer) => {
+    // this.setState(
+    //   (state) => {
+
+    //     const updatedQuestions = state.questions.map((question) => {
+    //       return userAnswer
+    //     })
+
+    //     return {
+    //       ...state,
+    //       questions: [
+    //         ...state.questions,
+    //         userAnswer
+    //       ]
+    //     }
+    //   });
     };
+    
     
     handleSelectDifficulty = (e) => {
       this.setState({
@@ -37,10 +49,27 @@ class App extends Component {
       const response = await rawResponse.json();
       this.setState({questions: response.results});
     };
+
+    // quando se quer utilizar o estado anterior, this.setState deve ter como argumento uma função
+    handleNextStep = () => {
+      if (this.state.step === this.state.questions.length -1){
+        // navigate to Results
+        this.props.history.push('/result');
+        return;
+      }
+      this.setState((prevState) => {
+        return {
+          ...prevState,
+          step: prevState.step +1
+        }
+      })
+    }
+
+    
     
     
     render() {
-      const { questions, isSelected } = this.state;
+      const { questions, isSelected, step } = this.state;
       return (
         <div className="App">
         <title>THE Trivia Game</title>
@@ -52,7 +81,9 @@ class App extends Component {
             render={() => <Questions 
               questions={questions} 
               handleUserAnswer={this.handleUserAnswer} 
-              isSelected={isSelected} />} 
+              isSelected={isSelected}
+              step={step} 
+              handleNextStep={this.handleNextStep}/>} 
           />
           <Route exact path="/result" component={Results} />
         </Switch>
@@ -62,4 +93,4 @@ class App extends Component {
 }
 
 
-export default App;
+export default withRouter(App);

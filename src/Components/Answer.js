@@ -9,6 +9,7 @@ const Answer = ({ answer, handleUserAnswer, question, isSelected }) => {
     const handleCorrect = () => {
         return answer === question.correct_answer ? "div-eachAnswer-right" : "div-eachAnswer-wrong"
     }
+    
 
     return (
         <div 
