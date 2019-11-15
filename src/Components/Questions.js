@@ -2,22 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EachQuestion from './EachQuestion'
 
-const Questions = ({ questions, handleUserAnswer, isSelected, step, handleNextStep }) => {
+const Questions = ({ questions, handleUserAnswer, step, handleNextStep }) => {
     return (
         <div>
             {
-                questions.map(question => 
+                questions.map((question, index) => 
                 <EachQuestion 
                     key={question.question}
                     question={question}
                     handleUserAnswer={handleUserAnswer}
-                    isSelected={isSelected}
                     step={step}
                     handleNextStep={handleNextStep}
+                    index={index}
                 />)
                 
             }
-            <div>Timer here</div>
             <Link to="/"><button>Home</button></Link>
         </div>
     )
