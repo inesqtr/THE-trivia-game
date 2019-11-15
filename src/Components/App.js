@@ -24,7 +24,6 @@ class App extends Component {
         const updatedQuestions = state.questions.map((question, index) => {
           if (index === state.step) {
             question.user_answer = userAnswer;
-            isSelected !== this.state.isSelected
           }
           return question;
         })
@@ -33,7 +32,10 @@ class App extends Component {
           ...state,
           questions: updatedQuestions,
         }
-      });
+      },
+      () => isSelected = !isSelected
+
+    );
   };
 
 
@@ -66,7 +68,7 @@ class App extends Component {
   }
 
   render() {
-    const { questions, step, userAnswer } = this.state;
+    const { questions, step, userAnswer, isSelected } = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
@@ -81,6 +83,7 @@ class App extends Component {
               step={step}
               handleNextStep={this.handleNextStep}
               userAnswer={userAnswer}
+              isSelected={isSelected}
             />}
           />
           <Route exact path="/result" component={Results} />

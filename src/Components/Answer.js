@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Answer = ({ answer, handleUserAnswer, question, userAnswer }) => {
+const Answer = ({ answer, handleUserAnswer, question, userAnswer, isSelected }) => {
 
     const handleSelectAnswer = () => {
         handleUserAnswer(answer)
@@ -14,7 +14,7 @@ const Answer = ({ answer, handleUserAnswer, question, userAnswer }) => {
     return (
         <div
             onClick={handleSelectAnswer}
-            className={userAnswer === '' ? "div-eachAnswer" : handleCorrect()}
+            className={isSelected ? handleCorrect() : "div-eachAnswer"}
         >
             {answer}
         </div>
