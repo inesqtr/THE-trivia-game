@@ -14,7 +14,9 @@ class EachQuestion extends Component {
 
     render() {
         return (
-            <div>
+            <div 
+            className={ this.props.step === this.props.index ? "displayed" : "notDisplayed"}
+            >
                 <h3>{this.props.question.question}</h3>
                 <div>
                     {
@@ -24,7 +26,6 @@ class EachQuestion extends Component {
                                 answer={answer}
                                 handleUserAnswer={this.props.handleUserAnswer}
                                 question={this.props.question}
-                                isSelected={this.props.isSelected}
                             />)
                     }
                 </div>

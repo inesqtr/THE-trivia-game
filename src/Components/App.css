@@ -64,6 +64,13 @@ a{
   text-decoration: none;
 }
 
+.displayed{
+  display: block;
+}
+
+.notDisplayed{
+  display: none;
+}
 
 
 

@@ -63,9 +63,6 @@ class App extends Component {
     })
   }
 
-
-
-
   render() {
     const { questions, isSelected, step } = this.state;
     return (
@@ -81,7 +78,8 @@ class App extends Component {
               handleUserAnswer={this.handleUserAnswer}
               isSelected={isSelected}
               step={step}
-              handleNextStep={this.handleNextStep} />}
+              handleNextStep={this.handleNextStep}
+              />}
           />
           <Route exact path="/result" component={Results} />
         </Switch>
