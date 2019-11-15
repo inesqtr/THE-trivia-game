@@ -10,11 +10,13 @@ class EachQuestion extends Component {
             shuffledAnswers: shuffle([this.props.question.correct_answer, ...this.props.question.incorrect_answers])
         };
     }
+
     
     render(){
     return (
         <div>
             <h3>{this.props.question.question}</h3>
+            <h4>{this.props.step +1}</h4>
             <div>
                 {
                     this.state.shuffledAnswers.map(answer => 
@@ -27,7 +29,12 @@ class EachQuestion extends Component {
                     />)
                 }
             </div>
-            <button id="nextButton">Next</button>
+            <button 
+                id="nextButton"
+                onClick={this.props.handleNextStep}
+                >
+                    Next
+            </button>
         </div>
     )
 }
