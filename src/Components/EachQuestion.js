@@ -31,7 +31,7 @@ class EachQuestion extends Component {
                 </div>
                 <h4>{this.props.step + 1}/10</h4>
                 <button
-                    id="nextButton"
+                    className="nextAndPlayAgainButton"
                     onClick={this.props.handleNextStep}
                 >
                     Next
