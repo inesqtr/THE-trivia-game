@@ -13,7 +13,7 @@ class EachQuestion extends Component {
 
 
     render() {
-        const { question, step, userAnswer, index, handleUserAnswer, handleNextStep, isSelected } = this.props;
+        const { question, step, index, handleUserAnswer, handleNextStep} = this.props;
         return (
             <div 
             className={ step === index ? "displayed" : "notDisplayed"}
@@ -27,8 +27,8 @@ class EachQuestion extends Component {
                                 answer={answer}
                                 handleUserAnswer={handleUserAnswer}
                                 question={question}
-                                userAnswer={userAnswer}
-                                isSelected={isSelected}
+                                userAnswer={question.user_answer}
+                                isCorrect={question.correct_answer === answer} 
                             />)
                     }
                 </div>

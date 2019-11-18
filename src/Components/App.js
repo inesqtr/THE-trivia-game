@@ -13,11 +13,10 @@ class App extends Component {
       questions: [],
       difficulty: '',
       step: 0,
-      isSelected: false
     }
   }
 
-  handleUserAnswer = (userAnswer, isSelected) => {
+  handleUserAnswer = (userAnswer) => {
     this.setState(
       (state) => {
 
@@ -32,8 +31,7 @@ class App extends Component {
           ...state,
           questions: updatedQuestions,
         }
-      },
-      () => isSelected = !isSelected
+      }
 
     );
   };
@@ -68,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-    const { questions, step, userAnswer, isSelected } = this.state;
+    const { questions, step, userAnswer} = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
@@ -83,7 +81,6 @@ class App extends Component {
               step={step}
               handleNextStep={this.handleNextStep}
               userAnswer={userAnswer}
-              isSelected={isSelected}
             />}
           />
           <Route exact path="/result" component={Results} />

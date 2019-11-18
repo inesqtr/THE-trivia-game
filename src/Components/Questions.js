@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import EachQuestion from './EachQuestion'
 
-const Questions = ({ questions, handleUserAnswer, step, handleNextStep, userAnswer, isSelected }) => {
+const Questions = ({ questions, handleUserAnswer, step, handleNextStep, userAnswer}) => {
     return (
         <div>
             {
@@ -14,8 +14,7 @@ const Questions = ({ questions, handleUserAnswer, step, handleNextStep, userAnsw
                     step={step}
                     handleNextStep={handleNextStep}
                     index={index}
-                    userAnswer={userAnswer}
-                    isSelected={isSelected}
+                    // userAnswer={userAnswer}
                 />)
                 
             }
