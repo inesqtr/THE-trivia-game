@@ -34,8 +34,8 @@ class EachQuestion extends Component {
                 </div>
                 <h4>{step + 1}/10</h4>
                 <button
-                    id="nextButton"
                     onClick={handleNextStep}
+                    className="nextAndPlayAgainButton"
                 >
                     Next
             </button>

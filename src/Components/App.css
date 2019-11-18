@@ -50,7 +50,7 @@ h1{
   margin: 30px 0px;
 }
 
-#nextButton{
+.nextAndPlayAgainButton{
   font-family: 'Tomorrow', sans-serif;
   font-size: 20px;
   padding: 5px 15px;
@@ -60,8 +60,18 @@ h1{
   text-transform: uppercase;
 }
 
+#div-result{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 20%;
+  padding: 15px;
+  margin: auto;
+  font-size: 30px;
+}
+
 a{
   text-decoration: none;
+  color: gray;
 }
 
 .displayed{
@@ -70,6 +80,18 @@ a{
 
 .notDisplayed{
   display: none;
+}
+
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+hr{
+  width: 80%;
 }
 
 
