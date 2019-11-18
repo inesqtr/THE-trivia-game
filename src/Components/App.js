@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       questions: [],
       difficulty: '',
-      step: 0
+      step: 0,
     }
   }
 
@@ -29,9 +29,11 @@ class App extends Component {
 
         return {
           ...state,
-          questions: updatedQuestions
+          questions: updatedQuestions,
         }
-      });
+      }
+
+    );
   };
 
 
@@ -64,7 +66,7 @@ class App extends Component {
   }
 
   render() {
-    const { questions, isSelected, step } = this.state;
+    const { questions, step, userAnswer} = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
@@ -76,10 +78,10 @@ class App extends Component {
             render={() => <Questions
               questions={questions}
               handleUserAnswer={this.handleUserAnswer}
-              isSelected={isSelected}
               step={step}
               handleNextStep={this.handleNextStep}
-              />}
+              userAnswer={userAnswer}
+            />}
           />
           <Route exact path="/result" component={Results} />
         </Switch>

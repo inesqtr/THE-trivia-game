@@ -13,26 +13,29 @@ class EachQuestion extends Component {
 
 
     render() {
+        const { question, step, index, handleUserAnswer, handleNextStep} = this.props;
         return (
             <div 
-            className={ this.props.step === this.props.index ? "displayed" : "notDisplayed"}
+            className={ step === index ? "displayed" : "notDisplayed"}
             >
-                <h3>{this.props.question.question}</h3>
+                <h3>{question.question}</h3>
                 <div>
                     {
                         this.state.shuffledAnswers.map(answer =>
                             <Answer
                                 key={answer}
                                 answer={answer}
-                                handleUserAnswer={this.props.handleUserAnswer}
-                                question={this.props.question}
+                                handleUserAnswer={handleUserAnswer}
+                                question={question}
+                                userAnswer={question.user_answer}
+                                isCorrect={question.correct_answer === answer} 
                             />)
                     }
                 </div>
-                <h4>{this.props.step + 1}/10</h4>
+                <h4>{step + 1}/10</h4>
                 <button
+                    onClick={handleNextStep}
                     className="nextAndPlayAgainButton"
-                    onClick={this.props.handleNextStep}
                 >
                     Next
             </button>
