@@ -1,12 +1,16 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content: space-between;
+  margin:auto;
 }
 
 .heading{
 display:flex;
 flex-wrap: wrap;
 justify-content: center;
-align-items: center;
 margin-top: 10px;
 }
 
@@ -45,6 +49,12 @@ margin-top: 10px;
   width: 70%;
   margin: auto;
   line-height: 2;
+}
+
+.loading-sign {
+  margin:auto;
+  height: 100px;
+  width:100px
 }
 
 .div-eachAnswer{
@@ -134,7 +144,7 @@ margin-top: 10px;
 #div-result{
   border: 1px solid #ccc;
   border-radius: 5px;
-  width: 15%;
+  width: 20%;
   padding: 15px;
   margin: auto;
   margin-bottom: 30px;
@@ -147,6 +157,7 @@ margin-top: 10px;
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 10px; 
+  margin:auto;
 }
 
 a{
@@ -178,11 +189,9 @@ a{
 }
 
 footer{
-  position: fixed;
-  left: 0;
-  bottom: 0;
   width: 95%;
   text-align: center;
+  margin:auto;
 }
 
 hr{

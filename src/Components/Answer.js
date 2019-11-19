@@ -4,7 +4,7 @@ import React from 'react';
 const Answer = ({ answer, handleUserAnswer, isCorrect, userAnswer, score }) => {
 
     const handleSelectAnswer = () => {
-        if( userAnswer) return '';
+        if (userAnswer) return '';
         return handleUserAnswer(answer)
     }
 
@@ -23,7 +23,7 @@ const Answer = ({ answer, handleUserAnswer, isCorrect, userAnswer, score }) => {
                 className={getClassName()[0]}
                 score={score}
             >
-                {answer}
+                {decodeURIComponent(answer)}
             </div>
             {
                 userAnswer &&

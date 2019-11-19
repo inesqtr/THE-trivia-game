@@ -28,6 +28,7 @@ class App extends Component {
             question.user_answer = userAnswer;
           }
           if (question.correct_answer === userAnswer) {
+            console.log('sum')
             newScore = newScore + 100;
           }
           return question;
@@ -86,9 +87,9 @@ class App extends Component {
 
   render() {
     const { questions, step, userAnswer, score, isLoading } = this.state;
+
     return (
       <div className="App">
-        <title>The Trivia Game</title>
         <div className="heading">
           <img className={questions.length !== 0 ? "logo-spin" : "logo"} src="https://res.cloudinary.com/darjcijgb/image/upload/v1574177675/5bd044cf-e41b-41a0-b365-283da397ea80_200x200_bl5rii.png" alt="" />
           <h1>The Trivia Game</h1>
@@ -117,6 +118,15 @@ class App extends Component {
             render={() => <Results
               score={score} />} />
         </Switch>
+        <footer>
+          <hr />
+          <p>
+            This game was developed and designed by 
+            <a href="https://www.linkedin.com/in/carolina-viero-15a26313a"> Carolina Viero </a> 
+            and 
+            <a href="https://www.linkedin.com/in/inesqtribeiro/"> Inês Ribeiro</a>.
+          </p>
+        </footer>
       </div>
     );
   }
