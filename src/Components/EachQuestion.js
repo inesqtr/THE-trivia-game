@@ -28,7 +28,7 @@ class EachQuestion extends Component {
                                 handleUserAnswer={handleUserAnswer}
                                 question={question}
                                 userAnswer={question.user_answer}
-                                isCorrect={question.correct_answer === answer} 
+                                isCorrect={question.correct_answer === answer}
                                 score={score}
                             />)
                     }
