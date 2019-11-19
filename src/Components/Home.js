@@ -9,7 +9,11 @@ const Home = ({ fetch, selectDifficulty }) => {
         <div>
             <div><h2>Welcome to the best Trivia Game ever!</h2></div>
             <div className="game-description">
-                <p>Do you think you're the ace of spades on general knowledge? <br/> So, prove your value on the next 10 questions! Choose your difficulty level and start playing!</p></div>
+                <p>Do you think you're the ace of spades on general knowledge?
+                    <br />
+                    So, prove your value on the next 10 questions! Choose your difficulty level and start playing!
+                </p>
+            </div>
             <div>
                 <button onClick={selectDifficulty} value="easy" className="difficultyButtons">Easy</button>
                 <button onClick={selectDifficulty} value="medium" className="difficultyButtons">Medium</button>
