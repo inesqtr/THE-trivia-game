@@ -13,9 +13,11 @@ class App extends Component {
       questions: [],
       difficulty: '',
       step: 0,
-      score: 0
+      score: 0,
+      isLoading: true
     }
   }
+
   
   handleUserAnswer = (userAnswer) => {
     this.setState(
@@ -25,12 +27,12 @@ class App extends Component {
           if (index === state.step) {
             question.user_answer = userAnswer;
           }
-          if (question.correct_answer === userAnswer){
+          if (question.correct_answer === userAnswer) {
             newScore = newScore + 100;
-          } 
+          }
           return question;
         })
-        
+
         return {
           ...state,
           questions: updatedQuestions,
@@ -48,11 +50,18 @@ class App extends Component {
     });
   };
 
-  handleFetchQuestions = async () => {
-    const difficulty = this.state.difficulty || 'easy';
-    const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple&encode=url3986`)
-    const response = await rawResponse.json();
-    this.setState({ questions: response.results });
+
+  handleFetchQuestions = () => {
+    this.setState({ isLoading: true }, async () => {
+      const difficulty = this.state.difficulty || 'easy';
+      const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple&encode=url3986`)
+      const response = await rawResponse.json();
+      this.setState({
+        questions: response.results,
+        step: 0,
+        isLoading: false,
+      });
+    })
   };
 
   // quando se quer utilizar o estado anterior, this.setState deve ter como argumento uma função
@@ -71,16 +80,16 @@ class App extends Component {
   }
 
   render() {
-    const { questions, step, userAnswer, score } = this.state;
+    const { questions, step, userAnswer, score, isLoading } = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
-          <Route 
-          exact path="/" 
-          render={() => <Home 
-              fetch={this.handleFetchQuestions} 
+          <Route
+            exact path="/"
+            render={() => <Home
+              fetch={this.handleFetchQuestions}
               selectDifficulty={this.handleSelectDifficulty} />} />
           <Route
             exact path="/questions"
@@ -91,14 +100,13 @@ class App extends Component {
               handleNextStep={this.handleNextStep}
               userAnswer={userAnswer}
               score={score}
+              isLoading={isLoading}
             />}
           />
-          <Route 
-            exact path="/result" 
-            render={() => <Results 
-              score={score} />}
-              handleFinalQuote={this.handleFinalQuote}
-              />
+          <Route
+            exact path="/result"
+            render={() => <Results
+              score={score} />} />
         </Switch>
       </div>
     );
