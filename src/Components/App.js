@@ -87,8 +87,8 @@ class App extends Component {
     const { questions, step, userAnswer, score, isLoading } = this.state;
     return (
       <div className="App">
-        <title>THE Trivia Game</title>
-        <h1>THE Trivia Game</h1>
+        <title>The Trivia Game</title>
+        <h1>The Trivia Game</h1>
         <Switch>
           <Route
             exact path="/"
