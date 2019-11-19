@@ -19,7 +19,7 @@ const Questions = ({ questions, handleUserAnswer, step, handleNextStep, userAnsw
                 />)
                 
             }
-            <Link to="/"><button>Home</button></Link>
+            <Link to="/"><button id="home-button">Home</button></Link>
         </div>
     )
 }
