@@ -69,6 +69,13 @@ h1{
   font-size: 30px;
 }
 
+#gif-result{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 10px; 
+}
+
 a{
   text-decoration: none;
   color: gray;
