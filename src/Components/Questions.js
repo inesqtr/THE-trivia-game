@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import EachQuestion from './EachQuestion'
+import EachQuestion from './EachQuestion';
+import Timer from './Timer'
+
 
 const Questions = ({ questions, handleUserAnswer, step, handleNextStep, score, isLoading }) => {
     if (questions.length === 0) return <Redirect to="/" />;
@@ -8,6 +10,7 @@ const Questions = ({ questions, handleUserAnswer, step, handleNextStep, score, i
     
     return (
         <div>
+            <Timer />
             {
                 questions.map((question, index) =>
                     <EachQuestion

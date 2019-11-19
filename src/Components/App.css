@@ -142,11 +142,24 @@ a{
 .displayed{
   display: block;
   width: 95%;
-  margin:auto;
+  margin: auto;
+  text-align: center;
 }
 
 .notDisplayed{
   display: none;
+}
+
+#timer{
+  font-family: 'Courier New', Courier, monospace;
+}
+
+#score{
+  border: 1px solid purple;
+  border-radius: 5px;
+  width: 20%;
+  margin: auto;
+  padding: 15px;
 }
 
 footer{

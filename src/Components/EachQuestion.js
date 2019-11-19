@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Answer from './Answer'
 import { shuffle } from 'lodash';
-import './App.css'
+import './App.css';
 
 class EachQuestion extends Component {
     constructor(props) {
@@ -33,8 +33,12 @@ class EachQuestion extends Component {
                             />)
                     }
                 </div>
-                <h4>{step + 1}/10</h4>
-                <h4>Score: {score}</h4>
+                
+                    <h2>
+                        {step + 1}/10
+                    </h2>
+                    
+                <h3 id="score">SCORE: {score}</h3> 
                 <button
                     onClick={handleNextStep}
                     className="nextAndPlayAgainButton"
