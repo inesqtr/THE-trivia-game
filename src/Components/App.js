@@ -16,9 +16,7 @@ class App extends Component {
       score: 0
     }
   }
-
   
-
   handleUserAnswer = (userAnswer) => {
     this.setState(
       (state) => {
@@ -98,7 +96,9 @@ class App extends Component {
           <Route 
             exact path="/result" 
             render={() => <Results 
-              score={score} />} />
+              score={score} />}
+              handleFinalQuote={this.handleFinalQuote}
+              />
         </Switch>
       </div>
     );
