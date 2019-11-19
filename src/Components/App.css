@@ -3,8 +3,12 @@
 }
 
 h1{
-  font-family: 'Tomorrow', sans-serif;
-  font-size: 60px;
+  font-family: 'VT323', sans-serif;
+  font-size: 110px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 30px;
+  color: #8a25b1
 }
 
 .div-eachAnswer{
@@ -59,9 +63,8 @@ h1{
 }
 
 .playButton{
-  font-family: 'Tomorrow', sans-serif;
-  font-size: 30px;
-  font-weight: bold;
+  font-family: 'VT323', sans-serif;
+  font-size: 40px;
   padding: 5px 15px;
   border-radius: 5px;
   margin: 30px 0px;
@@ -69,8 +72,8 @@ h1{
 }
 
 .nextAndPlayAgainButton{
-  font-family: 'Tomorrow', sans-serif;
-  font-size: 20px;
+  font-family: 'VT323', sans-serif;
+  font-size: 30px;
   padding: 5px 15px;
   border-radius: 5px;
   margin: 30px 0px;
