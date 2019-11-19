@@ -14,9 +14,10 @@ class EachQuestion extends Component {
 
     render() {
         const { question, step, index, handleUserAnswer, handleNextStep, score } = this.props;
+        console.log(step === index && question.correct_answer);
         return (
-            <div 
-            className={ step === index ? "displayed" : "notDisplayed"}
+            <div
+                className={step === index ? "displayed" : "notDisplayed"}
             >
                 <h2>{decodeURIComponent(question.question)}</h2>
                 <div>
@@ -24,7 +25,7 @@ class EachQuestion extends Component {
                         this.state.shuffledAnswers.map(answer =>
                             <Answer
                                 key={answer}
-                                answer={decodeURIComponent(answer)}
+                                answer={answer}
                                 handleUserAnswer={handleUserAnswer}
                                 question={question}
                                 userAnswer={question.user_answer}
@@ -33,12 +34,12 @@ class EachQuestion extends Component {
                             />)
                     }
                 </div>
-                
-                    <h2>
-                        {step + 1}/10
+
+                <h2>
+                    {step + 1}/10
                     </h2>
-                    
-                <h3 id="score">SCORE: {score}</h3> 
+
+                <h3 id="score">SCORE: {score}</h3>
                 <button
                     onClick={handleNextStep}
                     className="nextAndPlayAgainButton"
