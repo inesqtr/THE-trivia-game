@@ -18,13 +18,13 @@ class EachQuestion extends Component {
             <div 
             className={ step === index ? "displayed" : "notDisplayed"}
             >
-                <h3>{question.question}</h3>
+                <h3>{decodeURIComponent(question.question)}</h3>
                 <div>
                     {
                         this.state.shuffledAnswers.map(answer =>
                             <Answer
                                 key={answer}
-                                answer={answer}
+                                answer={decodeURIComponent(answer)}
                                 handleUserAnswer={handleUserAnswer}
                                 question={question}
                                 userAnswer={question.user_answer}
