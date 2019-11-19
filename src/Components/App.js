@@ -18,7 +18,7 @@ class App extends Component {
     }
   }
 
-  
+
   handleUserAnswer = (userAnswer) => {
     this.setState(
       (state) => {
@@ -50,7 +50,7 @@ class App extends Component {
     });
   };
 
-  componentDidMount(){
+  componentDidMount() {
     this.handleFetchQuestions()
   }
 
@@ -88,7 +88,11 @@ class App extends Component {
     return (
       <div className="App">
         <title>The Trivia Game</title>
-        <h1>The Trivia Game</h1>
+        <div className="heading">
+          <img src="https://res.cloudinary.com/darjcijgb/image/upload/v1574177675/5bd044cf-e41b-41a0-b365-283da397ea80_200x200_bl5rii.png" alt="" />
+          <h1>The Trivia Game</h1>
+        </div>
+
         <Switch>
           <Route
             exact path="/"

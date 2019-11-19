@@ -18,7 +18,7 @@ class EachQuestion extends Component {
             <div 
             className={ step === index ? "displayed" : "notDisplayed"}
             >
-                <h3>{decodeURIComponent(question.question)}</h3>
+                <h2>{decodeURIComponent(question.question)}</h2>
                 <div>
                     {
                         this.state.shuffledAnswers.map(answer =>
