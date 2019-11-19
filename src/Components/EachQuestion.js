@@ -14,7 +14,6 @@ class EachQuestion extends Component {
 
     render() {
         const { question, step, index, handleUserAnswer, handleNextStep, score } = this.props;
-        console.log(step === index && question.correct_answer);
         return (
             <div
                 className={step === index ? "displayed" : "notDisplayed"}

@@ -4,7 +4,6 @@
   display:flex;
   flex-direction:column;
   justify-content: space-between;
-  margin:auto;
 }
 
 .heading{
@@ -192,6 +191,7 @@ footer{
   width: 95%;
   text-align: center;
   margin:auto;
+  line-height: 2;
 }
 
 hr{
