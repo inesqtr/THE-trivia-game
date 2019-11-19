@@ -50,7 +50,7 @@ class App extends Component {
 
   handleFetchQuestions = async () => {
     const difficulty = this.state.difficulty || 'easy';
-    const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple`)
+    const rawResponse = await fetch(`https://opentdb.com/api.php?amount=10&difficulty=${difficulty}&type=multiple&encode=url3986`)
     const response = await rawResponse.json();
     this.setState({ questions: response.results });
   };
