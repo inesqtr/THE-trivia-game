@@ -83,13 +83,14 @@ class App extends Component {
     })
   }
 
+
   render() {
     const { questions, step, userAnswer, score, isLoading } = this.state;
     return (
       <div className="App">
         <title>The Trivia Game</title>
         <div className="heading">
-          <img src="https://res.cloudinary.com/darjcijgb/image/upload/v1574177675/5bd044cf-e41b-41a0-b365-283da397ea80_200x200_bl5rii.png" alt="" />
+          <img className={questions.length !== 0 ? "logo-spin" : "logo"} src="https://res.cloudinary.com/darjcijgb/image/upload/v1574177675/5bd044cf-e41b-41a0-b365-283da397ea80_200x200_bl5rii.png" alt="" />
           <h1>The Trivia Game</h1>
         </div>
 
