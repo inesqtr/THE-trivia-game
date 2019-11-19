@@ -4,7 +4,7 @@ import EachQuestion from './EachQuestion'
 
 const Questions = ({ questions, handleUserAnswer, step, handleNextStep, score, isLoading }) => {
     if (questions.length === 0) return <Redirect to="/" />;
-    if (isLoading) return <p>Loading...</p>;
+    if (isLoading) return <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" width="100" height="100" alt="loading"/>;
     
     return (
         <div>
