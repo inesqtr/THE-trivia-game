@@ -14,6 +14,7 @@ h1{
   width: 60%;
   margin: auto;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .div-eachAnswer-wrong{
@@ -23,6 +24,7 @@ h1{
   width: 60%;
   margin: auto;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .div-eachAnswer-right{
@@ -32,6 +34,7 @@ h1{
   width: 60%;
   margin: auto;
   margin-top: 5px;
+  cursor: pointer;
 }
 
 .difficultyButtons{
@@ -39,6 +42,7 @@ h1{
   padding: 5px 10px;
   border-radius: 5px;
   margin: 10px 5px;
+  cursor: pointer;
 }
 
 .playButton{
@@ -48,6 +52,7 @@ h1{
   padding: 5px 15px;
   border-radius: 5px;
   margin: 30px 0px;
+  cursor: pointer;
 }
 
 .nextAndPlayAgainButton{
@@ -58,6 +63,11 @@ h1{
   margin: 30px 0px;
   background-color: #ccc;
   text-transform: uppercase;
+  cursor: pointer;
+}
+
+#home-button{
+  cursor: pointer;
 }
 
 #div-result{
