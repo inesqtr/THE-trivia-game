@@ -50,6 +50,9 @@ class App extends Component {
     });
   };
 
+  componentDidMount(){
+    this.handleFetchQuestions()
+  }
 
   handleFetchQuestions = () => {
     this.setState({ isLoading: true }, async () => {
@@ -59,6 +62,7 @@ class App extends Component {
       this.setState({
         questions: response.results,
         step: 0,
+        score: 0,
         isLoading: false,
       });
     })

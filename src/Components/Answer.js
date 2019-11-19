@@ -4,6 +4,7 @@ import React from 'react';
 const Answer = ({ answer, handleUserAnswer, isCorrect, userAnswer, score }) => {
 
     const handleSelectAnswer = () => {
+        
         handleUserAnswer(answer)
     }
 
