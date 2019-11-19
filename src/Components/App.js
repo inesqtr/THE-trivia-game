@@ -13,23 +13,30 @@ class App extends Component {
       questions: [],
       difficulty: '',
       step: 0,
+      score: 0
     }
   }
+
+  
 
   handleUserAnswer = (userAnswer) => {
     this.setState(
       (state) => {
-
+        let newScore = state.score;
         const updatedQuestions = state.questions.map((question, index) => {
           if (index === state.step) {
             question.user_answer = userAnswer;
           }
+          if (question.correct_answer === userAnswer){
+            newScore = newScore + 100;
+          } 
           return question;
         })
-
+        
         return {
           ...state,
           questions: updatedQuestions,
+          score: newScore
         }
       }
 
@@ -66,13 +73,17 @@ class App extends Component {
   }
 
   render() {
-    const { questions, step, userAnswer} = this.state;
+    const { questions, step, userAnswer, score } = this.state;
     return (
       <div className="App">
         <title>THE Trivia Game</title>
         <h1>THE Trivia Game</h1>
         <Switch>
-          <Route exact path="/" render={() => <Home fetch={this.handleFetchQuestions} selectDifficulty={this.handleSelectDifficulty} />} />
+          <Route 
+          exact path="/" 
+          render={() => <Home 
+              fetch={this.handleFetchQuestions} 
+              selectDifficulty={this.handleSelectDifficulty} />} />
           <Route
             exact path="/questions"
             render={() => <Questions
@@ -81,9 +92,13 @@ class App extends Component {
               step={step}
               handleNextStep={this.handleNextStep}
               userAnswer={userAnswer}
+              score={score}
             />}
           />
-          <Route exact path="/result" component={Results} />
+          <Route 
+            exact path="/result" 
+            render={() => <Results 
+              score={score} />} />
         </Switch>
       </div>
     );

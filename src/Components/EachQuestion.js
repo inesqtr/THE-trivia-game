@@ -13,7 +13,7 @@ class EachQuestion extends Component {
 
 
     render() {
-        const { question, step, index, handleUserAnswer, handleNextStep} = this.props;
+        const { question, step, index, handleUserAnswer, handleNextStep, score } = this.props;
         return (
             <div 
             className={ step === index ? "displayed" : "notDisplayed"}
@@ -29,10 +29,12 @@ class EachQuestion extends Component {
                                 question={question}
                                 userAnswer={question.user_answer}
                                 isCorrect={question.correct_answer === answer} 
+                                score={score}
                             />)
                     }
                 </div>
                 <h4>{step + 1}/10</h4>
+                <h4>{score}</h4>
                 <button
                     onClick={handleNextStep}
                     className="nextAndPlayAgainButton"
