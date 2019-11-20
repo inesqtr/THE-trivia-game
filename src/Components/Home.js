@@ -12,7 +12,8 @@ const Home = ({ fetch, selectDifficulty }) => {
                 <div className="game-description">
                     <p>Do you think you're the ace of spades on general knowledge?
                     <br />
-                        So, prove your value on the next 10 questions! Choose your difficulty level and start playing!
+                        Prove your value on the next 10 questions! 
+                        Choose your difficulty level and start playing!
                 </p>
                 </div>
                 <div>
