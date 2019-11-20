@@ -4,7 +4,7 @@ import { Redirect } from 'react-router-dom';
 export default class Timer extends Component {
     state = {
         minutes: 1,
-        seconds: 0,
+        seconds: 30,
     }
 
     componentDidMount() {
