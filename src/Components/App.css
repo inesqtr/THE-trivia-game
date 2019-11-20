@@ -7,10 +7,11 @@
 }
 
 .heading{
-display:flex;
-flex-wrap: wrap;
-justify-content: center;
-margin-top: 10px;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 50px;
 }
 
 .logo-spin {
@@ -194,23 +195,34 @@ hr{
 }
 
 @media (max-width:685px){
+  .heading {
+    padding-top: 70px;
+    padding-bottom: 30px;
+  }
+
   .heading .logo-spin {
-   width: 100px;
+   width: 90px;
   }
 
   .heading h1 {
     font-size: 90px;
     margin-left: 0;
+    margin-top:0;
+    margin-bottom: 0;
    }
 }
 
 @media (max-width:480px){
+  .heading {
+    padding: 40px 5px 10px 5px;
+  }
+
   .heading .logo-spin {
    width: 70px;
   }
 
   .heading h1 {
-    font-size: 65px;
+    font-size: 62px;
    }
 }
 
